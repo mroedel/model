@@ -1,6 +1,6 @@
 <?php
 
-namespace Roedel\Model\Traits;
+namespace Roedel\Model;
 
 use Illuminate\Database\Eloquent\SoftDeletes as LaravelSoftDeletes;
 

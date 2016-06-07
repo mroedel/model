@@ -15,7 +15,6 @@
     "require": {
         "php": ">=5.4.0",
         "laravel/framework": "~5.0",
-        "venturecraft/revisionable": "~1.27",
         "watson/validating": "~2.2.1"
     },
     "require-dev": {
