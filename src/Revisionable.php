@@ -23,7 +23,7 @@ use DateTime;
  *
  * @author Michael Rödel
  */
-trait RevisionableTrait
+trait Revisionable
 {
     /**
      * Keeps track of the original data.
