@@ -34,10 +34,6 @@ class ModelServiceProvider extends ServiceProvider
                 $lastTimestamp = $currentTimestamp;
             }
         }
-
-        $this->publishes([
-            __DIR__ . '/../database/migrations/' => database_path('/migrations')
-        ], 'migrations');
     }
 
     /**
