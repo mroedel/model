@@ -23,6 +23,8 @@ class CreateRevisionsTable extends Migration
 
             $table->index(array('revisionable_id', 'revisionable_type'));
         });
+
+        DB::statement('ALTER TABLE `system_revisions` ADD `ip_address` VARBINARY(16) AFTER `new_value`');
     }
 
     /**

@@ -6,10 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class ModelServiceProvider extends ServiceProvider
 {
-    protected $migrations = [
-        'CreateRevisionsTable' => 'create_revisions_table.php',
-    ];
-
     /**
      * Bootstrap the application events.
      */
@@ -19,21 +15,9 @@ class ModelServiceProvider extends ServiceProvider
             __DIR__ . '/../config/roedel-model.php' => config_path('roedel-model.php'),
         ], 'config');
 
-        $lastTimestamp = 0;
-        foreach ($this->migrations as $class => $migration) {
-            if (!class_exists($class)) {
-                $currentTimestamp = date('Y_m_d_His', time());
-                if ($currentTimestamp === $lastTimestamp) {
-                    $currentTimestamp++;
-                }
-
-                $this->publishes([
-                    __DIR__ . "/../database/migrations/{$migration}.stub" => database_path("migrations/{$currentTimestamp}_{$migration}"),
-                ], 'migrations');
-
-                $lastTimestamp = $currentTimestamp;
-            }
-        }
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path('migrations')
+        ], 'migrations');
     }
 
     /**
